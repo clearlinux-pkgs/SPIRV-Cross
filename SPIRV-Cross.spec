@@ -4,7 +4,7 @@
 #
 Name     : SPIRV-Cross
 Version  : moltenvk.1.1.5
-Release  : 1
+Release  : 2
 URL      : https://github.com/KhronosGroup/SPIRV-Cross/archive/refs/tags/MoltenVK-1.1.5.tar.gz
 Source0  : https://github.com/KhronosGroup/SPIRV-Cross/archive/refs/tags/MoltenVK-1.1.5.tar.gz
 Summary  : C API for SPIRV-Cross
@@ -12,6 +12,7 @@ Group    : Development/Tools
 License  : Apache-2.0 CC-BY-4.0 MIT
 Requires: SPIRV-Cross-bin = %{version}-%{release}
 Requires: SPIRV-Cross-data = %{version}-%{release}
+Requires: SPIRV-Cross-lib = %{version}-%{release}
 Requires: SPIRV-Cross-license = %{version}-%{release}
 BuildRequires : buildreq-cmake
 BuildRequires : git
@@ -45,6 +46,7 @@ data components for the SPIRV-Cross package.
 %package dev
 Summary: dev components for the SPIRV-Cross package.
 Group: Development
+Requires: SPIRV-Cross-lib = %{version}-%{release}
 Requires: SPIRV-Cross-bin = %{version}-%{release}
 Requires: SPIRV-Cross-data = %{version}-%{release}
 Provides: SPIRV-Cross-devel = %{version}-%{release}
@@ -52,6 +54,16 @@ Requires: SPIRV-Cross = %{version}-%{release}
 
 %description dev
 dev components for the SPIRV-Cross package.
+
+
+%package lib
+Summary: lib components for the SPIRV-Cross package.
+Group: Libraries
+Requires: SPIRV-Cross-data = %{version}-%{release}
+Requires: SPIRV-Cross-license = %{version}-%{release}
+
+%description lib
+lib components for the SPIRV-Cross package.
 
 
 %package license
@@ -71,7 +83,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1638814824
+export SOURCE_DATE_EPOCH=1638815270
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -82,7 +94,7 @@ export CFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=auto "
 export FCFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=auto "
 export FFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=auto "
 export CXXFLAGS="$CXXFLAGS -O3 -ffat-lto-objects -flto=auto "
-%cmake ..
+%cmake .. -DSPIRV_CROSS_SHARED=ON
 make  %{?_smp_mflags}
 popd
 
@@ -94,7 +106,7 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 cd clr-build; make test
 
 %install
-export SOURCE_DATE_EPOCH=1638814824
+export SOURCE_DATE_EPOCH=1638815270
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/SPIRV-Cross
 cp %{_builddir}/SPIRV-Cross-MoltenVK-1.1.5/LICENSE %{buildroot}/usr/share/package-licenses/SPIRV-Cross/2b8b815229aa8a61e483fb4ba0588b8b6c491890
@@ -116,6 +128,8 @@ popd
 %defattr(-,root,root,-)
 /usr/share/spirv_cross_c/cmake/spirv_cross_cConfig-relwithdebinfo.cmake
 /usr/share/spirv_cross_c/cmake/spirv_cross_cConfig.cmake
+/usr/share/spirv_cross_c_shared/cmake/spirv_cross_c_sharedConfig-relwithdebinfo.cmake
+/usr/share/spirv_cross_c_shared/cmake/spirv_cross_c_sharedConfig.cmake
 /usr/share/spirv_cross_core/cmake/spirv_cross_coreConfig-relwithdebinfo.cmake
 /usr/share/spirv_cross_core/cmake/spirv_cross_coreConfig.cmake
 /usr/share/spirv_cross_cpp/cmake/spirv_cross_cppConfig-relwithdebinfo.cmake
@@ -150,6 +164,13 @@ popd
 /usr/include/spirv_cross/spirv_msl.hpp
 /usr/include/spirv_cross/spirv_parser.hpp
 /usr/include/spirv_cross/spirv_reflect.hpp
+/usr/lib64/libspirv-cross-c-shared.so
+/usr/lib64/pkgconfig/spirv-cross-c-shared.pc
+
+%files lib
+%defattr(-,root,root,-)
+/usr/lib64/libspirv-cross-c-shared.so.0
+/usr/lib64/libspirv-cross-c-shared.so.0.48.0
 
 %files license
 %defattr(0644,root,root,0755)
