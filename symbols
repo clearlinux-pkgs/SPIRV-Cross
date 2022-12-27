@@ -36,7 +36,6 @@ libspirv-cross-c-shared.so.0:spvc_compiler_get_remapped_declared_block_name
 libspirv-cross-c-shared.so.0:spvc_compiler_get_specialization_constants
 libspirv-cross-c-shared.so.0:spvc_compiler_get_type_handle
 libspirv-cross-c-shared.so.0:spvc_compiler_get_work_group_size_specialization_constants
-libspirv-cross-c-shared.so.0:spvc_compiler_has_active_builtin
 libspirv-cross-c-shared.so.0:spvc_compiler_has_decoration
 libspirv-cross-c-shared.so.0:spvc_compiler_has_member_decoration
 libspirv-cross-c-shared.so.0:spvc_compiler_hlsl_add_resource_binding
@@ -46,8 +45,6 @@ libspirv-cross-c-shared.so.0:spvc_compiler_hlsl_remap_num_workgroups_builtin
 libspirv-cross-c-shared.so.0:spvc_compiler_hlsl_set_resource_binding_flags
 libspirv-cross-c-shared.so.0:spvc_compiler_hlsl_set_root_constants_layout
 libspirv-cross-c-shared.so.0:spvc_compiler_install_compiler_options
-libspirv-cross-c-shared.so.0:spvc_compiler_mask_stage_output_by_builtin
-libspirv-cross-c-shared.so.0:spvc_compiler_mask_stage_output_by_location
 libspirv-cross-c-shared.so.0:spvc_compiler_msl_add_discrete_descriptor_set
 libspirv-cross-c-shared.so.0:spvc_compiler_msl_add_dynamic_buffer
 libspirv-cross-c-shared.so.0:spvc_compiler_msl_add_inline_uniform_block
@@ -94,7 +91,6 @@ libspirv-cross-c-shared.so.0:spvc_compiler_type_struct_member_offset
 libspirv-cross-c-shared.so.0:spvc_compiler_unset_decoration
 libspirv-cross-c-shared.so.0:spvc_compiler_unset_execution_mode
 libspirv-cross-c-shared.so.0:spvc_compiler_unset_member_decoration
-libspirv-cross-c-shared.so.0:spvc_compiler_update_active_builtins
 libspirv-cross-c-shared.so.0:spvc_compiler_variable_is_depth_or_compare
 libspirv-cross-c-shared.so.0:spvc_constant_get_scalar_fp16
 libspirv-cross-c-shared.so.0:spvc_constant_get_scalar_fp32
@@ -123,7 +119,6 @@ libspirv-cross-c-shared.so.0:spvc_msl_resource_binding_init
 libspirv-cross-c-shared.so.0:spvc_msl_sampler_ycbcr_conversion_init
 libspirv-cross-c-shared.so.0:spvc_msl_shader_input_init
 libspirv-cross-c-shared.so.0:spvc_msl_vertex_attribute_init
-libspirv-cross-c-shared.so.0:spvc_resources_get_builtin_resource_list_for_type
 libspirv-cross-c-shared.so.0:spvc_resources_get_resource_list_for_type
 libspirv-cross-c-shared.so.0:spvc_type_array_dimension_is_literal
 libspirv-cross-c-shared.so.0:spvc_type_get_array_dimension
