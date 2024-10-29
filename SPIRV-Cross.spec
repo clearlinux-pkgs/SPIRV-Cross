@@ -4,7 +4,7 @@
 #
 Name     : SPIRV-Cross
 Version  : 2021.01.15
-Release  : 3
+Release  : 4
 URL      : https://github.com/KhronosGroup/SPIRV-Cross/archive/2021-01-15/SPIRV-Cross-2021.01.15.tar.gz
 Source0  : https://github.com/KhronosGroup/SPIRV-Cross/archive/2021-01-15/SPIRV-Cross-2021.01.15.tar.gz
 Summary  : C API for SPIRV-Cross
